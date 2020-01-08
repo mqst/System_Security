@@ -1,0 +1,40 @@
+Logical Volumes Management [LVM] Basic structure:
+
+
+
+File_System(xN)
+  |
+Logical_Volume(xN)
+  |
+Voume_Group(1)
+  |
+Physical_Volume(xN)
+
+===================================================
+Creating and Managing LVM:
+
+1. First add a storage partition(Disk) from your your VirtualBox.
+2. Use the fdisk commands to format the partitions:
+    fdisk -l
+    fdisk /dev/sdd
+3. Use the pvcreate command to create Physical Volume(s) and pvdisplay to display it:
+    pvcreate /dev/sdd1 /dev/sdd2
+    pvdisplay 
+4. After creating Physical Volume(s), create a Volume Group using vgcreate command:
+    vgcreate vgcent /dev/sdd1 
+    ###vgcent = name of the vg group
+5. Finally create Logical Volumes using lvcreate command & lvdisplay to display the same: 
+    lvcreate -L 10G -n nameofthelv vgcent
+    lvdisplay
+6. Now to manage the created Logical Volumes i.e. to extend or shrink the size of the Logical Volumes, follow the commands below:
+    lvreduce /dev/vgcent/lvol0 -L 2G
+    ###This will reduce the size of the logical volume without any unavailability
+    lvextend /dev/vgcent/lvol0 -L +4G
+    ### If there is insufficient space it will give error
+    
+    Flags:
+      -L sets a fixed size of the LV
+      -n used to indicate a name for the LV
+      
+MISC: If you want to create snapshot then use the following syntax:
+        lvcreate --size 100M --snapshot/-s --name snap /dev/vgcent/lvol0     
