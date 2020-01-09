@@ -9,5 +9,30 @@ Installation:
   sudo systemctl enable smb.service
   sudo systemctl enable nmb.service
   
+Adding Samba to Firewall:
+  firewall-cmd --permanent --zone=public --add-service=samba
+  firewall-cmd --zone=public --add-service=samba
 ==============================================
 
+Steps to configuring and adding Samba Server:
+1. Create the directory which you want to share through Samba:
+  sudo mkdir /samba
+
+2. Create a user for whom you want to enable Samba:
+  sudo useradd smbusr
+
+3. Now you need to add the newly created user to Samba database and enable the account simultaneously:
+  sudo smbpasswd -a smbusr 
+  sudo smbpasswd -e smbusr
+
+4. Now make changes to the Samba configuration file by adding the shared folder. Go to:
+  sudo nano /etc/samba/smb.conf
+  
+  ##Add the following:
+  [samba]
+    path = /samba
+    browseable = yes
+    read only = no
+    valid users = smbusr
+5. Restat
+  
