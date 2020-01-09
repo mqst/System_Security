@@ -45,4 +45,20 @@ Samba Client:
 1. Installation on client machine:
   sudo yum install samba-client
 
-2. 
+2. Connect to the Server:
+  smbclient //<IP>/<Shared_Folder_Name> -U username
+
+3. To list all the shares:
+  smbclient -L //<IP>/<Shared_Folder_Name> -U username
+
+==============================================
+To Mount Samba on Linux:
+
+1. Install the necessary cifs-utils package:
+  sudo yum install cifs-utils
+  
+2. Create a mount point to mount the shared folder:
+  sudo mkdir /mnt/smbmount
+ 
+3. Finally mount using the following command:
+  sudo mount -t cifs -o username=username //<IP>/<Shared_Folder_Name> /mnt/smbmount
