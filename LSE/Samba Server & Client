@@ -34,5 +34,15 @@ Steps to configuring and adding Samba Server:
     browseable = yes
     read only = no
     valid users = smbusr
-5. Restat
+    
+5. Restart Samba services:
+  sudo systemctl restart smb.service
+  sudo systemctl restart nmb.service
   
+==============================================
+Samba Client:
+
+1. Installation on client machine:
+  sudo yum install samba-client
+
+2. 
