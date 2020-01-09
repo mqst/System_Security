@@ -1,1 +1,13 @@
+Installing and managing Samba on CentOS 7.
+
+Installation:
+  sudo yum install samba samba-client
+  
+  sudo systemctl start smb.service
+  sudo systemctl start nmb.service
+  
+  sudo systemctl enable smb.service
+  sudo systemctl enable nmb.service
+  
+==============================================
 
