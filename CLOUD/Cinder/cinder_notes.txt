@@ -1,0 +1,12 @@
+Cinder has 3 sub components:
+  - cinder-api
+  - cinder-scheduler
+  - cinder-volume
+
+----
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller 
+#transport_url is message queue url for communication between OpenStack Service Components.
+
+auth_strategy = keystone/ldap
+#auth_strategy tells what component to use for authenticating one service with another service. 
