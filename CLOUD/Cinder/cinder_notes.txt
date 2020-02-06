@@ -4,9 +4,29 @@ Cinder has 3 sub components:
   - cinder-volume
 
 ----
+controller node
+----
 [DEFAULT]
 transport_url = rabbit://openstack:RABBIT_PASS@controller 
 #transport_url is message queue url for communication between OpenStack Service Components.
-
+----
+[DEFAULT]
 auth_strategy = keystone/ldap
 #auth_strategy tells what component to use for authenticating one service with another service. 
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+#where the keystone url is for accessing
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+#where caching happens of all tokens
+----
+[oslo_concurrency]
+lock_path = /var/lib/cinder/tmp
+#during concurrency lock happens. This is the path where these locks are placed
+
+----
+storage node
+----
+apt install lvm2 thin-provisioning-tools
+#thin-provisioning = LVM partitioning
+#thick-provisioning = Normal partitioning
