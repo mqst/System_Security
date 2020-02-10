@@ -1,0 +1,3 @@
+pipeline has authentication and authorization parameters.
+recon is cache for resource usage or logs.
+healthcheck tells us if	the instance is	running	or not.
