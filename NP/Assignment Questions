@@ -1,0 +1,35 @@
+======
+Assignment - 1
+======
+
+1. Explain OSI reference model. Discuss working of each layer.
+2. Explain API for TCP-server
+
+======
+Assignment - 2
+======
+
+1. Design client-server connection oriented program to find 
+   factorial a number.
+2. Write client-server program to send and receive simple string.
+
+======
+Assignment - 3
+======
+
+1. Explain process structure of multi-service server. Write advantages and disadvantages of multi-service server.
+2. Write client-server program to print reverse of a number.
+
+======
+Assignment - 4
+======
+
+1. Explain TCP/IP model with all of its layers.
+2. Explain file transfer server
+
+======
+Assignment - 5
+======
+
+1. Write a program for addition of two numbers.
+2. Explain ECHO service with example
