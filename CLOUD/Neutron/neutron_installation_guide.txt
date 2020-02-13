@@ -1,0 +1,48 @@
+apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent
+#neutron-plugin-ml2 -ml2 is modular layer 2 is responsible for bridging.
+#neutron-linuxbridge-agent - linuxbridge is responsible for encapsulating the internal network
+#dhcp agent - assigns IPs to vms.
+
+[DEFAULT]
+# ...
+core_plugin = ml2
+service_plugins = router
+allow_overlapping_ips = true
+
+#allow_overlapping_ips - gives us the possibility to use IPs which are free from some other subnet. This is possible because of VXLAN and NOT VLAN.
+
+
+[DEFAULT]
+# ...
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+#neutron communicates using message queue between its components hence the transport url for the rabbitmq
+
+[DEFAULT]
+# ...
+notify_nova_on_port_status_changes = true
+notify_nova_on_port_data_changes = true
+#if a port is blocked we get notified that the port is blocked.
+
+[ml2]
+# ...
+type_drivers = flat,vlan,vxlan
+#Drivers to communicate internally in the network. 
+vxlan makes overlapping_ips possible. 
+flat is for single subnet.
+
+[ml2]
+# ...
+tenant_network_types = vxlan
+
+
+[ml2]
+# ...
+mechanism_drivers = linuxbridge,l2population
+#linuxbridge makes encapsulation possible in the network.
+#The Linux bridge agent only supports VXLAN overlay networks.
+
+[securitygroup]
+# ...
+enable_security_group = true
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+#Firewall to allow/deny access/accessibilty to inside instances from outside. 
