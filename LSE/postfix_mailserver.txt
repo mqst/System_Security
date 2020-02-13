@@ -1,0 +1,40 @@
+##Make sure DNS is functioning and configured on server.
+
+
+SERVER
+------------
+yum install postfix
+nano /etc/resolv.conf
+#put entries in above file
+
+
+#To check hostname of your system
+  hostname
+#To change hostname of your system
+  hostname set-hostname new.host.name
+
+
+systemctl enable postfix.service
+systemctl start postfix.service
+
+
+nano /etc/postfix/main.cf
+	myhostname = __
+	mydomain = __
+	uncomment myorigin
+	uncomment inet_interfaces = all
+	uncomment mydestination
+	add mynetworks = 10.1.1.0/24
+
+systemctl restart postfix.service
+echo -s "test" | mail "hello" cent@centos10.sicsr.com
+
+
+
+
+CLIENT
+------------
+
+su - cent
+mail
+mailq
