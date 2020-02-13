@@ -40,3 +40,9 @@ tenant_network_types = vxlan
 mechanism_drivers = linuxbridge,l2population
 #linuxbridge makes encapsulation possible in the network.
 #The Linux bridge agent only supports VXLAN overlay networks.
+
+[securitygroup]
+# ...
+enable_security_group = true
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+#Firewall to allow/deny access/accessibilty to inside instances from outside. 
