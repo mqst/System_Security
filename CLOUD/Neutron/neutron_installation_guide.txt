@@ -1,3 +1,5 @@
+https://docs.openstack.org/neutron/rocky/install/controller-install-option2-ubuntu.html
+
 apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent
 #neutron-plugin-ml2 -ml2 is modular layer 2 is responsible for bridging.
 #neutron-linuxbridge-agent - linuxbridge is responsible for encapsulating the internal network
