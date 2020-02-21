@@ -1,0 +1,23 @@
+Server
+==============
+To only get anonymous write on the client
+-------------------------
+
+yum install vsftpd                                             
+systemctl start vsftpd                                        
+systemctl enable vsftpd                                        
+cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.backup      
+nano /etc/vsftpd/vsftpd.conf      [dont change anything. make sure anonymous_enable=YES]                             
+semanage boolean -m ftpd_full_access --on
+getsebool -a | grep ftp                                       
+semanage boolean -m ftpd_full_access --off
+semanage boolean -m ftpd_anon_write --on                  
+systemctl restart vsftpd        
+iptables -F
+
+==============
+Client
+==============
+yum install ftp
+ftp <ip> 
+	Name: anonymous
