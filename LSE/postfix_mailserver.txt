@@ -30,11 +30,8 @@ systemctl restart postfix.service
 echo -s "test" | mail "hello" cent@centos10.sicsr.com
 
 
-
-
 CLIENT
 ------------
-
 su - cent
 mail
 mailq
