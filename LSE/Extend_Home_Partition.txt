@@ -1,3 +1,6 @@
+##The first and important step would be to login as "root" user if you want to make any changes to /home. Now unmount the /home partition
+umount /home
+
 ##List all the partitions on your system in (in human readable format)
 df -h
 
@@ -17,5 +20,10 @@ e2fsck -f /dev/sda3
 resize2fs /dev/sda3 12G
 
 partprobe
+
+##Now mount /home back
+mount /home
+df -h
+reboot
   
   
