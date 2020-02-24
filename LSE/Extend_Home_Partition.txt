@@ -1,0 +1,21 @@
+##List all the partitions on your system in (in human readable format)
+df -h
+
+##Now pick the partition at which /home resides and run fdisk command
+fdisk /dev/sda
+  p (print)
+  d -> delete -> default
+  n -> New partition -> default -> +12G (Extend)
+  p
+  w (write all changes)
+
+##Now run the partprobe command to tell the OS of partition table changes
+partprobe
+
+##Run the following commands to check the newly created file system and resize the newly created FS
+e2fsck -f /dev/sda3
+resize2fs /dev/sda3 12G
+
+partprobe
+  
+  
