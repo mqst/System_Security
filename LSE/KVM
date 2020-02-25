@@ -16,3 +16,17 @@ lsmod | grep -i kvm
 ##Now configure bridged networking capabilities
 brctl show
 virsh net-list
+
+##After all these steps create your virtual machine. Now make sure to convert your VDI file to qcow2 before migrating.
+##Go to the location of your VM and run the following command.
+qemu-img convert -f vdi CentClient.vdi -O qcow2 CentClient.qcow2
+virsh list
+
+##Your qcow2 image is ready. Open the GUI application - "Virtual Machines Manager" and export your .qcow2 image and run the virtual machine.
+
+## If all steps are correct, it will run.
+
+
+##Live migrate (??? - check again!)
+
+virsh migrate --live cent_kvm qemu+ssh://mqst2.sicsr.com/system
