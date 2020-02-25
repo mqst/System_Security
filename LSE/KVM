@@ -1,3 +1,18 @@
 ##Kernel-based Virtual Machine (KVM) is an open source virtualization technology. Specifically, KVM lets you turn Linux into a hypervisor that allows a host machine to run multiple, 
 isolated virtual environments called guests or virtual machines (VMs).
 
+##Commands (On host machine)
+##Make sure your system has Virtualization Technology (VT-X) enabled.
+lscpu | grep Virtualization
+
+##Install kvm
+sudo yum install qemu-kvm libvirt libvirt-python libguestfs-tools virt-install
+sudo systemctl enable libvirtd
+sudo systemctl start libvirtd
+
+##Check if kvm is installed properly
+lsmod | grep -i kvm
+
+##Now configure bridged networking capabilities
+brctl show
+virsh net-list
