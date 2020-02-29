@@ -10,6 +10,10 @@ case $choice in
     tail -F /var/log/syslog | grep neutron | awk '/(WARNING | ERROR | error| DEBUG)/{print $0}' | egrep '(ERROR | error)'
     ;;
 
+  2)
+    grep neutron /var/log/syslog | awk '/(WARNING | ERROR | error| DEBUG)/{print $0}' | egrep '(ERROR | error)'
+    ;;
+    
   *)
     echo -n "unknown choice"
     ;;
