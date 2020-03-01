@@ -2,13 +2,13 @@ Logical Volumes Management [LVM] Basic structure:
 
 
 
-File_System(xN)
+File_System(x)
   |
-Logical_Volume(xN)
+Logical_Volume(x)
   |
 Voume_Group(1)
   |
-Physical_Volume(xN)
+Physical_Volume(x)
 
 ===================================================
 Creating and Managing LVM:
