@@ -1,0 +1,7 @@
+Federated Identity
+
+Web Browser (Services, IDP, Subnet IP masking)
+|
+Proxy (Token, certification)
+|
+Policies (Keystone, identity)
