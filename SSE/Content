@@ -1,0 +1,55 @@
+Syllabus
+---------------
+
+################################
+Web Top 10:
+[What is it & what are it's preventive actions?]
+- SQL Injection
+- XSS
+- IDOR
+- Security Misconfigurations
+- Insecure Crypto Storage
+- Failure to restrict URL access
+- Unvalidated Redirects & Forwards
+
+################################
+Mobile Top 10:
+[What is it & what are it's preventive actions?]
+- Improper Platform usage
+- Insecure Data Storage
+- Insecure Communication
+- Insecure Authorization
+- Insecure Authentication
+- Insufficient Cryptography
+- Client Code Quality
+
+################################
+Secure Programming Guidelines:
+- Generic Guidelines for Java
+- System Configurations
+- Security to File management
+- Database Security
+
+################################
+Secure SDLC:
+- Secure Analysis
+- Secure Design
+- Secure development
+- Secure Implementation
+
+################################
+Buffer Overflow *
+
+################################
+Fuzzing:
+- Fuzz Testing 
+- Types of Fuzz Testing
+- Fuzzer Types
+- Fuzz
+- Fuzz Data
+
+################################
+- Malicious Code
+- Payload
+- Vulnerability
+- CIA
